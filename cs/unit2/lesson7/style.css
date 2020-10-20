@@ -42,11 +42,14 @@ h6 {
     background: #1D1D1D;
     margin: .5rem;
     width: 18rem;
-    padding: 1rem;
     border-radius: .25rem;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
     -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !important;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-contents {
+    padding: 1rem;
 }
 
 .card:hover {
@@ -68,7 +71,12 @@ h6 {
     flex-wrap: wrap;
 }
 
+.card-img {
+    width: 100%;
+}
+
 footer {
+    margin-top: 2rem;
     margin-bottom: 0px;
     width: 100%;
     background: #1F1F1F;
