@@ -144,6 +144,8 @@ h6 {
 
 .card-img {
     width: 100%;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
 }
 
 footer {
