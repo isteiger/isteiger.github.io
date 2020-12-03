@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap');
 body {
     box-sizing: border-box !important;
     background-color: #1A1E25;
@@ -15,6 +16,10 @@ body {
     min-height: 100%;
     position: relative;
     top: 0px;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
 }
 
 .info {
@@ -101,6 +106,7 @@ h6 {
 }
 
 .card {
+    position: relative;
     display: inline-block;
     margin: .5rem;
     width: 20rem;
@@ -167,6 +173,10 @@ footer {
     text-decoration: none;
 }
 
+.nav-link-nav {
+    margin-right: .6rem;
+}
+
 .nav-link:hover {
     text-decoration: underline;
 }
@@ -180,4 +190,16 @@ footer {
     display: inline;
     padding-left: .4rem;
     vertical-align: middle;
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0, 0, 0, 0);
 }
