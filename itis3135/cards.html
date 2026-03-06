@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian K. Steiger's Ingenious Squirrel ~ ITIS 3135 | Cards</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        #playing-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 32px;
+            width: min(1100px, 100%);
+            box-sizing: border-box;
+            margin: 0 auto;
+            background: #0f172a;
+            border-radius: 8px;
+        }
+
+        .card {
+            width: 220px;
+            height: 320px;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            box-sizing: border-box;
+
+            background: #f8fafc;
+            color: #0f172a;
+            border-radius: 14px;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+        }
+
+        .left,
+        .middle,
+        .right {
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .left {
+            align-self: flex-start;
+            font-size: 22px;
+        }
+
+        .middle {
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 42px;
+        }
+
+        .right {
+            align-self: flex-end;
+            font-size: 22px;
+            transform: rotate(180deg);
+        }
+
+        .red { color: #b91c1c; }
+        .black { color: #0f172a; }
+        .pip { font-size: 44px; }
+    </style>
+</head>
+
+<body>
+    <div data-include="components/header.html"></div>
+ <main id="playing-cards">
+    <div class="card">
+      <div class="left red">A<br>♥</div>
+      <div class="middle red">
+        <div class="pip">♥</div>
+      </div>
+      <div class="right red">A<br>♥</div>
+    </div>
+
+    <div class="card">
+      <div class="left black">K<br>♠</div>
+      <div class="middle black">
+        <div class="pip">♠</div>
+      </div>
+      <div class="right black">K<br>♠</div>
+    </div>
+
+    <div class="card">
+      <div class="left red">7<br>♦</div>
+      <div class="middle red">
+        <div class="pip">♦</div>
+      </div>
+      <div class="right red">7<br>♦</div>
+    </div>
+  </main>
+    <div data-include="components/footer.html"></div>
+    <script src="scripts/include.min.js"></script>
+</body>
+
+</html>
