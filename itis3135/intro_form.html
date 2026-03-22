@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ian K. Steiger's Ingenious Squirrel ~ ITIS 3135 | Introduction Form</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  <style>
+    fieldset {
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+    }
+    legend {
+      font-weight: 600;
+      padding: 0 0.25rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="url"],
+    input[type="file"],
+    textarea {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 0.2rem;
+      padding: 0.4rem 0.5rem;
+      border: 1px solid #9ca3af;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #f9fafb;
+      color: #1f2937;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 4rem;
+    }
+    .buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    button {
+      padding: 0.45rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    button[type="submit"] { background: #1d4ed8; color: #fff; }
+    button[type="submit"]:hover { background: #1e40af; }
+    button[type="reset"], #reset-btn { background: #6b7280; color: #fff; }
+    button[type="reset"]:hover, #reset-btn:hover { background: #4b5563; }
+    button[type="button"] { background: #e5e7eb; color: #1f2937; }
+    button[type="button"]:hover { background: #d1d5db; }
+    #generate-html-btn { background: #059669; color: #fff; }
+    #generate-html-btn:hover { background: #047857; }
+    #generate-json-btn { background: #7c3aed; color: #fff; }
+    #generate-json-btn:hover { background: #6d28d9; }
+    .delete-course-btn {
+      background: #dc2626;
+      color: #fff;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .delete-course-btn:hover { background: #b91c1c; }
+    #image-preview {
+      display: block;
+      max-width: 200px;
+      margin-top: 0.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+    }
+    .course-entry fieldset {
+      background: #f9fafb;
+    }
+    pre {
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+    code {
+      font-size: 0.85rem;
+    }
+    blockquote {
+      border-left: 3px solid #d1d5db;
+      margin-left: 0;
+      padding-left: 1rem;
+      color: #4b5563;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div data-include="components/header.html"></div>
+  <main>
+    <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
+
+    <form id="intro-form" novalidate>
+
+      <!-- Name -->
+      <fieldset>
+        <legend>Name</legend>
+        <label>First Name*
+          <input type="text" id="first-name" value="Ian" placeholder="First name" required>
+        </label>
+        <label>Middle Name or Initial (optional)
+          <input type="text" id="middle-name" value="K." placeholder="Middle name or initial">
+        </label>
+        <label>Nickname / Preferred Name (optional)
+          <input type="text" id="nickname" value="" placeholder="e.g. Alex">
+        </label>
+        <label>Last Name*
+          <input type="text" id="last-name" value="Steiger" placeholder="Last name" required>
+        </label>
+      </fieldset>
+
+      <!-- Acknowledgment -->
+      <fieldset>
+        <legend>Acknowledgment</legend>
+        <label>Acknowledgment Statement*
+          <textarea id="ack-statement" placeholder="I acknowledge that..." required>I acknowledge that the information on this page is accurate to the best of my knowledge.</textarea>
+        </label>
+        <label>Acknowledgment Date*
+          <input type="text" id="ack-date" value="01/21/2026" placeholder="MM/DD/YYYY" required>
+        </label>
+      </fieldset>
+
+      <!-- Mascot -->
+      <fieldset>
+        <legend>Mascot</legend>
+        <label>Mascot Adjective*
+          <input type="text" id="mascot-adjective" value="Ingenious" placeholder="e.g. Clever" required>
+        </label>
+        <label>Mascot Animal*
+          <input type="text" id="mascot-animal" value="Squirrel" placeholder="e.g. Penguin" required>
+        </label>
+        <label>Divider*
+          <input type="text" id="divider" value="|" placeholder="e.g. ~ | ♥" required>
+        </label>
+      </fieldset>
+
+      <!-- Picture -->
+      <fieldset>
+        <legend>Picture</legend>
+        <label>Upload Image (optional — defaults to your photo)
+          <input type="file" id="image-upload" accept="image/*">
+        </label>
+        <img id="image-preview" src="../assets/me.jpg" alt="Preview">
+        <label>Picture Caption*
+          <input type="text" id="image-caption"
+            value="Outside of my elementary school with my HS Grad gown on"
+            placeholder="Describe your photo" required>
+        </label>
+      </fieldset>
+
+      <!-- Personal Statement -->
+      <fieldset>
+        <legend>Personal Statement</legend>
+        <label>Personal Statement*
+          <textarea id="personal-statement" placeholder="Write a brief intro about yourself..." required>I'm a freshman (sophomore in credits) at Charlotte majoring in Computer Science. I'm excited to work on front-end systems this semester.</textarea>
+        </label>
+      </fieldset>
+
+      <!-- Background Bullets -->
+      <fieldset>
+        <legend>Background</legend>
+        <label>Personal Background*
+          <textarea id="personal-background" placeholder="Your personal background..." required>I'm 18 years old and love anything computer related.</textarea>
+        </label>
+        <label>Professional Background*
+          <textarea id="professional-background" placeholder="Your professional background..." required>I work at PayMore Stores as an intern creating internal applications to speed up processes, and also work in a store.</textarea>
+        </label>
+        <label>Academic Background*
+          <textarea id="academic-background" placeholder="Your academic background..." required>I'm a Sophomore at Charlotte studying computer science with a concentration in Web/Mobile Dev and Software Engineering. Before that I attended HS in Cary, North Carolina.</textarea>
+        </label>
+        <label>Background in this Subject*
+          <textarea id="subject-background" placeholder="Your background in web/this subject..." required>I have been developing a lot of random websites and such in React and other frameworks.</textarea>
+        </label>
+        <label>Primary Work Computer*
+          <input type="text" id="primary-computer"
+            value="Custom Built PC (R9 7950X, RX 7900 XT, 64GB RAM), My Suite Room"
+            placeholder="Your primary computer" required>
+        </label>
+        <label>Backup Work Computer &amp; Location Plan*
+          <input type="text" id="backup-computer"
+            value="2023 16&quot; M3 Pro MacBook Pro, or Surface Pro 10 if necessary, The Library"
+            placeholder="Backup computer and where you'll use it" required>
+        </label>
+      </fieldset>
+
+      <!-- Courses -->
+      <fieldset>
+        <legend>Courses I'm Taking &amp; Why</legend>
+        <div id="courses-container"></div>
+        <button type="button" id="add-course-btn">+ Add Course</button>
+      </fieldset>
+
+      <!-- Quote -->
+      <fieldset>
+        <legend>Quote</legend>
+        <label>Quote*
+          <textarea id="quote" placeholder="Your favorite quote..." required>Details matter, it's worth waiting to get it right.</textarea>
+        </label>
+        <label>Quote Author*
+          <input type="text" id="quote-author" value="Steve Jobs" placeholder="Who said it?" required>
+        </label>
+      </fieldset>
+
+      <!-- Optional Items -->
+      <fieldset>
+        <legend>Optional Items</legend>
+        <label>Funny / Interesting thing to remember you by (optional)
+          <input type="text" id="funny-thing" value="I am from Switzerland." placeholder="Something funny or interesting about you">
+        </label>
+        <label>Something I'd like to share (optional)
+          <textarea id="share-item" placeholder="Anything else you'd like visitors to know...">I have a fair bit of experience in this, but my knowledge is completely patchwork.</textarea>
+        </label>
+      </fieldset>
+
+      <!-- Links -->
+      <fieldset>
+        <legend>Links (5 required)</legend>
+        <label>Link 1 Name*
+          <input type="text" id="link-name-1" value="CLT Web" placeholder="Link label" required>
+        </label>
+        <label>Link 1 URL*
+          <input type="url" id="link-href-1" value="https://webpages.charlotte.edu/isteiger" placeholder="https://..." required>
+        </label>
+
+        <label>Link 2 Name*
+          <input type="text" id="link-name-2" value="GitHub.io" placeholder="Link label" required>
+        </label>
+        <label>Link 2 URL*
+          <input type="url" id="link-href-2" value="https://isteiger.github.io/" placeholder="https://..." required>
+        </label>
+
+        <label>Link 3 Name*
+          <input type="text" id="link-name-3" value="GitHub" placeholder="Link label" required>
+        </label>
+        <label>Link 3 URL*
+          <input type="url" id="link-href-3" value="https://github.com/isteiger" placeholder="https://..." required>
+        </label>
+
+        <label>Link 4 Name*
+          <input type="text" id="link-name-4" value="freeCodeCamp" placeholder="Link label" required>
+        </label>
+        <label>Link 4 URL*
+          <input type="url" id="link-href-4" value="https://www.freecodecamp.org/isteigerclt" placeholder="https://..." required>
+        </label>
+
+        <label>Link 5 Name*
+          <input type="text" id="link-name-5" value="LinkedIn" placeholder="Link label" required>
+        </label>
+        <label>Link 5 URL*
+          <input type="url" id="link-href-5" value="https://www.linkedin.com/in/iksteiger" placeholder="https://..." required>
+        </label>
+      </fieldset>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="button" id="reset-btn">Reset</button>
+        <button type="button" id="clear-btn">Clear</button>
+        <button type="button" id="generate-json-btn">Generate JSON</button>
+        <button type="button" id="generate-html-btn">Generate HTML</button>
+      </div>
+
+    </form>
+  </main>
+  <div data-include="components/footer.html"></div>
+  <script src="scripts/include.min.js"></script>
+  <script src="scripts/introduction.js"></script>
+  <script src="scripts/generate_json.js"></script>
+  <script src="scripts/generate_html.js"></script>
+</body>
+
+</html>
