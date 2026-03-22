@@ -7,13 +7,117 @@
     <title>Ian K. Steiger's Ingenious Squirrel ~ ITIS 3135 | Inventory</title>
     <link rel="stylesheet" href="styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        span {
+            display: inline-block;
+        }
+
+        tr[class="read"] {
+            background-image: linear-gradient(to right, #e0f7e9, #b2dfdb);
+        }
+
+        tr[class="to-read"] {
+            background-image: linear-gradient(to right, #e3f2fd, #bbdefb);
+        }
+
+        tr[class="in-progress"] {
+            background-image: linear-gradient(to right, #fff8e1, #ffe082);
+        }
+
+        tr[class="to-read"] span[class="status"] {
+            border: 1px solid #1565c0;
+            background-image: linear-gradient(to right, #1565c0, #1976d2);
+            color: white;
+        }
+
+        tr[class="read"] span[class="status"] {
+            border: 1px solid #2e7d32;
+            background-image: linear-gradient(to right, #2e7d32, #388e3c);
+            color: white;
+        }
+
+        tr[class="in-progress"] span[class="status"] {
+            border: 1px solid #e65100;
+            background-image: linear-gradient(to right, #e65100, #f57c00);
+            color: white;
+        }
+
+        span[class="status"],
+        span[class^="rate"] {
+            height: 24px;
+            width: auto;
+            padding: 2px 8px;
+        }
+
+        span[class^="rate"] > span {
+            border: 1px solid #999;
+            border-radius: 50%;
+            margin: 2px;
+            height: 14px;
+            width: 14px;
+            background-color: #ddd;
+        }
+
+        span[class~="three"] span {
+            background-image: linear-gradient(to bottom, #ffd700, #ffa000);
+        }
+
+        span[class~="two"] :nth-child(1),
+        span[class~="two"] :nth-child(2) {
+            background-image: linear-gradient(to bottom, #ffd700, #ffa000);
+        }
+
+        span[class~="one"] :first-child {
+            background-image: linear-gradient(to bottom, #ffd700, #ffa000);
+        }
+    </style>
 </head>
 
 <body>
     <div data-include="components/header.html"></div>
     <main>
-        <h2>Product Inventory</h2>
-        <p>This page will contain a product inventory.</p>
+        <h2>Book Inventory</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="read">
+                    <td>The Great Gatsby</td>
+                    <td>F. Scott Fitzgerald</td>
+                    <td>Fiction</td>
+                    <td><span class="status">Read</span></td>
+                    <td><span class="rate one"><span></span><span></span><span></span></span></td>
+                </tr>
+                <tr class="to-read">
+                    <td>Dune</td>
+                    <td>Frank Herbert</td>
+                    <td>Sci-Fi</td>
+                    <td><span class="status">To Read</span></td>
+                    <td><span class="rate"><span></span><span></span><span></span></span></td>
+                </tr>
+                <tr class="in-progress">
+                    <td>Atomic Habits</td>
+                    <td>James Clear</td>
+                    <td>Self-Help</td>
+                    <td><span class="status">In Progress</span></td>
+                    <td><span class="rate two"><span></span><span></span><span></span></span></td>
+                </tr>
+                <tr class="read">
+                    <td>1984</td>
+                    <td>George Orwell</td>
+                    <td>Dystopian</td>
+                    <td><span class="status">Read</span></td>
+                    <td><span class="rate three"><span></span><span></span><span></span></span></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
     <div data-include="components/footer.html"></div>
     <script src="scripts/include.min.js"></script>

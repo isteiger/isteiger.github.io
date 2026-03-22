@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding as a Hobby | Ian K. Steiger</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* ── Reset & Base ── */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Typography ── */
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            color: #3fb950;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.6rem;
+            color: #58a6ff;
+            border-bottom: 2px solid #21262d;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #3fb950;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            line-height: 1.7;
+            color: #c9d1d9;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #3fb950;
+        }
+
+        /* ── Header ── */
+        header {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 1.2rem 2rem;
+        }
+
+        h1 span {
+            color: #58a6ff;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #e6edf3;
+            background-color: #21262d;
+        }
+
+        nav a.active {
+            color: #3fb950;
+        }
+
+        .nav-divider {
+            color: #8b949e;
+            user-select: none;
+        }
+
+        /* ── Main ── */
+        main {
+            flex: 1;
+            padding: 2.5rem 2rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Figures ── */
+        figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+
+        figcaption {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+
+        figure + p {
+            font-style: italic;
+            color: #8b949e;
+            font-size: 0.88rem;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* ── Tables ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #21262d;
+            color: #3fb950;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            border-bottom: 2px solid #30363d;
+        }
+
+        td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #21262d;
+            color: #c9d1d9;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #161b22;
+        }
+
+        /* ── Lists ── */
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #c9d1d9;
+            line-height: 1.8;
+        }
+
+        /* ── Code snippets ── */
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            padding: 0.15em 0.45em;
+            font-size: 0.9em;
+            color: #ff7b72;
+        }
+
+        pre {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #a5f3a5;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ── Form ── */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        form label {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            display: block;
+            padding: 0.6rem 0.9rem;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        form input:focus,
+        form select:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        form button {
+            align-self: flex-start;
+            padding: 0.55rem 1.25rem;
+            background-color: #238636;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        form button:hover {
+            background-color: #2ea043;
+        }
+
+        /* ── AI Prompts section ── */
+        .prompt-block {
+            background-color: #161b22;
+            border-left: 3px solid #58a6ff;
+            border-radius: 0 6px 6px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .prompt-block .prompt-label {
+            font-size: 0.8rem;
+            color: #58a6ff;
+            font-family: 'Courier New', Courier, monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+
+        .prompt-block p {
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: #161b22;
+            border-top: 1px solid #30363d;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .validation-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .validation-links a {
+            font-size: 0.85rem;
+            color: #8b949e;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            padding: 0.3rem 0.75rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .validation-links a:hover {
+            border-color: #58a6ff;
+            color: #58a6ff;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>&lt;<span>Coding</span> /&gt; as a Hobby</h1>
+        <nav id="main-nav" aria-label="Section navigation">
+            <a href="#" class="active" data-section="what">What</a>
+            <span class="nav-divider" aria-hidden="true">◆</span>
+            <a href="#" data-section="who">Who</a>
+            <span class="nav-divider" aria-hidden="true">◆</span>
+            <a href="#" data-section="when">When</a>
+            <span class="nav-divider" aria-hidden="true">◆</span>
+            <a href="#" data-section="where">Where</a>
+            <span class="nav-divider" aria-hidden="true">◆</span>
+            <a href="#" data-section="how">How</a>
+            <span class="nav-divider" aria-hidden="true">◆</span>
+            <a href="#" data-section="why">Why</a>
+            <span class="nav-divider" aria-hidden="true">◆</span>
+            <a href="#" data-section="ai-prompts">AI Prompts</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ════════════════════════════════════════
+             WHAT — default visible section
+        ════════════════════════════════════════ -->
+        <section id="what" class="active" aria-label="What is coding">
+            <h2>What is Coding?</h2>
+
+            <p>
+                Coding — also called programming or software development — is the craft of writing instructions
+                that a computer can execute. It is a creative and analytical discipline where logic meets
+                imagination. Whether you are building a website, automating a tedious task, or simulating
+                the physics of a video game, the process always begins with a blank file and an idea.
+                What makes coding a compelling <em>hobby</em> is the immediate feedback loop: write a few
+                lines, run the program, and watch your idea come to life.
+            </p>
+
+            <figure>
+                <img src="./images/workspace.png" alt="A developer's desk with multiple monitors displaying colorful code editors">
+                <figcaption>A typical coding setup — multiple screens, dark theme, infinite coffee.</figcaption>
+            </figure>
+            <p><em>AI prompt used to generate this image: "Photorealistic developer desk with dual monitors showing colorful syntax-highlighted code, dark room with ambient LED lighting, mechanical keyboard, coffee mug, top-down perspective."</em></p>
+
+            <div class="card">
+                <h3>Popular Languages to Explore</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Language</th>
+                            <th>Best For</th>
+                            <th>Difficulty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Python</code></td>
+                            <td>Data science, scripting, beginners</td>
+                            <td>Easy</td>
+                        </tr>
+                        <tr>
+                            <td><code>JavaScript</code></td>
+                            <td>Web front-end &amp; back-end</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td><code>C++</code></td>
+                            <td>Game engines, systems programming</td>
+                            <td>Hard</td>
+                        </tr>
+                        <tr>
+                            <td><code>Rust</code></td>
+                            <td>Performance-critical software</td>
+                            <td>Hard</td>
+                        </tr>
+                        <tr>
+                            <td><code>HTML / CSS</code></td>
+                            <td>Web pages and styling</td>
+                            <td>Easy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>A Taste of Code</h3>
+                <p>Here is a classic first program. Every coder knows it:</p>
+                <pre><code># Python
+print("Hello, World!")
+
+# JavaScript
+console.log("Hello, World!");
+
+# C
+#include &lt;stdio.h&gt;
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+                <p>
+                    Simple as it looks, these three lines represent the entry point into three entirely
+                    different ecosystems of tools, communities, and career paths. Coding as a hobby
+                    means you get to explore all of them purely for the joy of it.
+                </p>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════
+             WHO
+        ════════════════════════════════════════ -->
+        <section id="who" aria-label="About the coder">
+            <h2>Who Codes for Fun?</h2>
+
+            <p>
+                Hobbyist coders span every age, background, and profession. Some are students pushing
+                past class requirements to build their own apps. Others are professionals from completely
+                unrelated fields who learned to code to solve a personal problem — and got hooked.
+                The common thread is curiosity: a desire to understand how digital things work and the
+                satisfaction of building something from scratch.
+            </p>
+
+            <figure>
+                <img src="images/diverseppl.png" alt="Diverse group of people collaborating on laptops at a hackathon">
+                <figcaption>Hobbyist coders come from every background — students, professionals, retirees, and everyone in between.</figcaption>
+            </figure>
+            <p><em>AI prompt used to generate this image: "Photorealistic wide-angle photo of a diverse group of people at a hackathon, laptops open, whiteboards with diagrams, excited expressions, modern coworking space, warm lighting."</em></p>
+
+            <div class="card">
+                <h3>About Me</h3>
+                <p>
+                    I am Ian Steiger, a Computer Science student at UNC Charlotte. I started coding in
+                    elementary school by coding websites and such and eventually moved on to building
+                    more complex websites, scripting automations, and experimenting with various tech. Coding is
+                    the hobby that became a major — but it never stopped being fun.
+                </p>
+                <ul>
+                    <li>Primary languages: JavaScript, C#</li>
+                    <li>Favorite tools: VS Code, Git, Linux terminal</li>
+                    <li>Current projects: This very website, Applications for Work that I can't go into detail about</li>
+                    <li>Goals: Deploy my code at work to 150+ stores</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Skill Snapshot</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Years of Experience</th>
+                            <th>Self-Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML &amp; CSS</td>
+                            <td>7</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>7</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>C#</td>
+                            <td>3</td>
+                            <td>Intermediate</td>
+                        </tr>
+                        <tr>
+                            <td>React</td>
+                            <td>5</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>Git / GitHub</td>
+                            <td>6</td>
+                            <td>Advanced</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════
+             WHEN
+        ════════════════════════════════════════ -->
+        <section id="when" aria-label="When to code">
+            <h2>When Do Hobbyist Coders Code?</h2>
+
+            <p>
+                Unlike a work deadline, hobby coding happens whenever inspiration strikes — but seasoned
+                hobbyists know that building a consistent practice is what leads to real growth.
+                Late nights are a coder cliché for a reason: the house is quiet, notifications are off,
+                and it is just you, the terminal, and a problem worth solving. That said, even 30 focused
+                minutes during a lunch break can produce meaningful progress on a personal project.
+            </p>
+
+            <figure>
+                <img src="images/lockedin.png" alt="Person coding alone late at night with a glowing monitor in a dark room">
+                <figcaption>The classic late-night coding session — where bugs become features and features become bugs.</figcaption>
+            </figure>
+            <p><em>AI prompt used to generate this image: "Photorealistic shot of a programmer coding alone at night, single monitor glow illuminating their face, dark room, empty energy drink cans, sticky notes on monitor, focused expression."</em></p>
+
+            <div class="card">
+                <h3>Typical Weekly Coding Schedule</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Session Type</th>
+                            <th>Typical Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Bug fixing / code review</td>
+                            <td>1–2 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>New feature development</td>
+                            <td>2–3 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Learning / tutorials</td>
+                            <td>1–2 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>Deep work / side project</td>
+                            <td>3–5 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>Reading docs / planning</td>
+                            <td>1 hour</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Best Times to Learn Something New</h3>
+                <ul>
+                    <li><strong>Morning:</strong> Great for reading documentation and planning — the brain is fresh.</li>
+                    <li><strong>Afternoon:</strong> Good for active building when energy is steady.</li>
+                    <li><strong>Late night:</strong> Best for deep debugging sessions with no interruptions.</li>
+                    <li><strong>Weekends:</strong> Ideal for longer projects that require uninterrupted flow states.</li>
+                    <li><strong>Hackathons:</strong> Concentrated bursts of 24–48 hours for maximum creative output.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════
+             WHERE
+        ════════════════════════════════════════ -->
+        <section id="where" aria-label="Where to code">
+            <h2>Where Do Coders Code?</h2>
+
+            <p>
+                One of coding's greatest advantages as a hobby is its low barrier to entry: all you need
+                is a computer and an internet connection — and the internet connection is optional.
+                From coffee shops to open-source contribution events, the where is flexible.
+                The real question is where you do your <em>best</em> thinking, because coding is mostly
+                thinking, with a little typing at the end.
+            </p>
+
+            <figure>
+                <img src="images/coffeeshop.png" alt="Laptop open on a coffee shop table beside a latte, code on screen">
+                <figcaption>Coffee shops and coding go together like syntax errors and Stack Overflow.</figcaption>
+            </figure>
+            <p><em>AI prompt used to generate this image: "Photorealistic overhead photo of a MacBook showing a code editor, placed on a wooden coffee shop table next to a latte with foam art, natural window light, warm tones."</em></p>
+
+            <div class="card">
+                <h3>Top Online Platforms for Hobby Coders</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>What It Offers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GitHub</td>
+                            <td>Host projects, collaborate, explore open-source code</td>
+                        </tr>
+                        <tr>
+                            <td>CodePen</td>
+                            <td>Browser-based HTML/CSS/JS playground</td>
+                        </tr>
+                        <tr>
+                            <td>Replit</td>
+                            <td>Cloud IDE for dozens of languages, shareable projects</td>
+                        </tr>
+                        <tr>
+                            <td>LeetCode / HackerRank</td>
+                            <td>Algorithm practice and competitive programming</td>
+                        </tr>
+                        <tr>
+                            <td>freeCodeCamp</td>
+                            <td>Free structured curriculum with certifications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Physical Spaces That Inspire Good Code</h3>
+                <ul>
+                    <li><strong>Home office / bedroom desk</strong> — ultimate comfort and customization</li>
+                    <li><strong>University computer labs</strong> — access to powerful machines and fast networks</li>
+                    <li><strong>Co-working spaces</strong> — professional atmosphere, good for focus</li>
+                    <li><strong>Coffee shops</strong> — ambient noise, caffeine on demand</li>
+                    <li><strong>Libraries</strong> — quiet, distraction-free, and free to use</li>
+                    <li><strong>Hackathon venues</strong> — electric energy and dozens of fellow coders</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════
+             HOW
+        ════════════════════════════════════════ -->
+        <section id="how" aria-label="How to start coding">
+            <h2>How Do You Get Started?</h2>
+
+            <p>
+                Getting into coding as a hobby has never been easier. The biggest obstacle is not
+                the complexity of the tools — it is deciding where to begin. The answer: start small,
+                build something that solves a real problem for you, and do not worry about writing
+                "perfect" code. Every expert was once a beginner who googled the same basic things
+                you will google tomorrow. The process below is a practical starting path for an absolute
+                beginner.
+            </p>
+
+            <figure>
+                <img src="images/roadmap.png" alt="Step-by-step roadmap diagram for learning to code, printed and pinned to a corkboard">
+                <figcaption>A roadmap makes the journey less overwhelming — pick a destination and start walking.</figcaption>
+            </figure>
+            <p><em>AI prompt used to generate this image: "Photorealistic photo of a corkboard with a colorful hand-drawn coding learning roadmap pinned to it, sticky notes, string connecting steps, warm office lighting."</em></p>
+
+            <div class="card">
+                <h3>Beginner's Roadmap</h3>
+                <ol>
+                    <li><strong>Pick one language</strong> — Python or JavaScript are both excellent first choices.</li>
+                    <li><strong>Set up your environment</strong> — Install VS Code (free) and the language runtime.</li>
+                    <li><strong>Complete a structured tutorial</strong> — freeCodeCamp, The Odin Project, or official docs.</li>
+                    <li><strong>Build a tiny project</strong> — A to-do list, a simple calculator, or a personal webpage.</li>
+                    <li><strong>Break something on purpose</strong> — Experiment, change values, observe results.</li>
+                    <li><strong>Use version control</strong> — Commit your code to GitHub from day one.</li>
+                    <li><strong>Join a community</strong> — Reddit's r/learnprogramming, Discord servers, local meetups.</li>
+                    <li><strong>Repeat</strong> — Each project teaches you something the last one did not.</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Free Resources to Learn</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resource</th>
+                            <th>Format</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>freeCodeCamp</td>
+                            <td>Interactive exercises</td>
+                            <td>Web development</td>
+                        </tr>
+                        <tr>
+                            <td>The Odin Project</td>
+                            <td>Project-based curriculum</td>
+                            <td>Full-stack web dev</td>
+                        </tr>
+                        <tr>
+                            <td>CS50 (Harvard)</td>
+                            <td>Video lectures + problem sets</td>
+                            <td>Computer science fundamentals</td>
+                        </tr>
+                        <tr>
+                            <td>MDN Web Docs</td>
+                            <td>Reference documentation</td>
+                            <td>HTML, CSS, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>YouTube (Fireship, Traversy)</td>
+                            <td>Short video tutorials</td>
+                            <td>Quick concept overviews</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════
+             WHY
+        ════════════════════════════════════════ -->
+        <section id="why" aria-label="Why code as a hobby">
+            <h2>Why Code as a Hobby?</h2>
+
+            <p>
+                In a world full of passive entertainment, coding is one of the few hobbies where you
+                end a session having <em>created</em> something that did not exist before. It sharpens
+                logical reasoning, builds problem-solving instincts, and — unlike most hobbies — has
+                direct career value. Even if you never work as a programmer, understanding how software
+                works gives you leverage in nearly every modern profession. But beyond all the practical
+                benefits, the real reason is simpler: it is genuinely fun to make a computer do
+                exactly what you want.
+            </p>
+
+            <figure>
+                <img src="images/yipee.png" alt="Programmer smiling at a screen showing a successfully completed project build">
+                <figcaption>That feeling when the build finally passes — pure, unfiltered joy.</figcaption>
+            </figure>
+            <p><em>AI prompt used to generate this image: "Photorealistic close-up of a programmer's face lit by a monitor showing green text 'Build Successful', big smile, dark background, candid shot."</em></p>
+
+            <div class="card">
+                <h3>Top Reasons People Code for Fun</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reason</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Creative outlet</td>
+                            <td>Build games, art, music tools, or anything you can imagine</td>
+                        </tr>
+                        <tr>
+                            <td>Automation</td>
+                            <td>Write a script once, save hours of repetitive work forever</td>
+                        </tr>
+                        <tr>
+                            <td>Problem-solving</td>
+                            <td>Each bug is a puzzle — satisfying to solve, impossible to put down</td>
+                        </tr>
+                        <tr>
+                            <td>Community</td>
+                            <td>Open-source, hackathons, and forums connect you with like-minded people</td>
+                        </tr>
+                        <tr>
+                            <td>Career boost</td>
+                            <td>Even basic coding skills are increasingly valued across all industries</td>
+                        </tr>
+                        <tr>
+                            <td>Low cost</td>
+                            <td>A free text editor and internet connection is all you need to start</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Share Your Enthusiasm</h3>
+                <p>Want to connect with other hobbyist coders? Fill out the form below and I may feature your story on this page!</p>
+                <form onsubmit="handleFormSubmit(event)">
+                    <div>
+                        <label for="coder-name">Your Name</label>
+                        <input type="text" id="coder-name" name="name" placeholder="e.g. Jane Dev" required>
+                    </div>
+                    <div>
+                        <label for="coder-lang">Favorite Language</label>
+                        <select id="coder-lang" name="language">
+                            <option value="">-- Select a language --</option>
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="cpp">C / C++</option>
+                            <option value="rust">Rust</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="coder-why">Why do you love coding?</label>
+                        <textarea id="coder-why" name="reason" rows="4" placeholder="Tell us your story..."></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════
+             AI PROMPTS
+        ════════════════════════════════════════ -->
+        <section id="ai-prompts" aria-label="AI prompts used">
+            <h2>AI Prompts Used</h2>
+
+            <p>
+                This page was built with the assistance of <strong>Claude (Anthropic)</strong>.
+                Below are the prompts used during the development process, organized by purpose.
+            </p>
+
+            <div class="card">
+                <h3>Page Structure &amp; HTML</h3>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">Prompt</p>
+                    <p>"yo i put the assignment PDF in the hobby folder, dump me a bunch of text that aligns with the rubric that i can use to fill in the empty spots in the code gracias"</p>
+                </div>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">Model used</p>
+                    <p>Claude Sonnet 4.6 via Claude Code in VS Code (Anthropic)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Image Prompts (for future AI generation)</h3>
+                <p>The following the AI wrote for me to put in ChatGPT to generate images. Crazy stuff, AI writing prompts for other AI.</p>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">What section — developer desk</p>
+                    <p>"Photorealistic developer desk with dual monitors showing colorful syntax-highlighted code, dark room with ambient LED lighting, mechanical keyboard, coffee mug, top-down perspective."</p>
+                </div>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">Who section — hackathon group</p>
+                    <p>"Photorealistic wide-angle photo of a diverse group of people at a hackathon, laptops open, whiteboards with diagrams, excited expressions, modern coworking space, warm lighting."</p>
+                </div>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">When section — late night coding</p>
+                    <p>"Photorealistic shot of a programmer coding alone at night, single monitor glow illuminating their face, dark room, empty energy drink cans, sticky notes on monitor, focused expression."</p>
+                </div>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">Where section — coffee shop</p>
+                    <p>"Photorealistic overhead photo of a MacBook showing a code editor, placed on a wooden coffee shop table next to a latte with foam art, natural window light, warm tones."</p>
+                </div>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">How section — roadmap corkboard</p>
+                    <p>"Photorealistic photo of a corkboard with a colorful hand-drawn coding learning roadmap pinned to it, sticky notes, string connecting steps, warm office lighting."</p>
+                </div>
+
+                <div class="prompt-block">
+                    <p class="prompt-label">Why section — successful build</p>
+                    <p>"Photorealistic close-up of a programmer's face lit by a monitor showing green text 'Build Successful', big smile, dark background, candid shot."</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Designed by <a href="../isteigerdesign.com/index.html">isteigerDesign</a></p>
+        <div class="validation-links">
+            <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fwebpages.charlotte.edu%2Fisteiger%2Fitis3135%2Fhobby%2F" target="_blank" rel="noopener noreferrer">Validate HTML</a>
+            <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwebpages.charlotte.edu%2Fisteiger%2Fitis3135%2Fhobby%2F" target="_blank" rel="noopener noreferrer">Validate CSS</a>
+            <a href="https://wave.webaim.org/report#/https://webpages.charlotte.edu/isteiger/itis3135/hobby/" target="_blank" rel="noopener noreferrer">Check Accessibility</a>
+        </div>
+    </footer>
+
+    <script>
+        // Section show/hide logic
+        (function () {
+            const navLinks = document.querySelectorAll('#main-nav a[data-section]');
+            const sections = document.querySelectorAll('main section');
+
+            function showSection(sectionId) {
+                sections.forEach(function (sec) {
+                    sec.classList.remove('active');
+                });
+                navLinks.forEach(function (link) {
+                    link.classList.remove('active');
+                });
+
+                const target = document.getElementById(sectionId);
+                if (target) {
+                    target.classList.add('active');
+                }
+
+                const activeLink = document.querySelector('#main-nav a[data-section="' + sectionId + '"]');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    showSection(this.getAttribute('data-section'));
+                });
+            });
+
+            // Default: show "what"
+            showSection('what');
+        }());
+
+        // Simple form submission handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('coder-name').value;
+            alert('Thanks, ' + name + '! Your response has been noted.');
+            e.target.reset();
+        }
+    </script>
+
+</body>
+</html>
