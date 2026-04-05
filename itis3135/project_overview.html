@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian K. Steiger's Ingenious Squirrel ~ ITIS 3135 | Project Overview</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div data-include="components/header.html"></div>
+    <main>
+        <h2>Project Overview: PayMore Store Review System</h2>
+
+        <h3>Project Description</h3>
+        <p>
+            The PayMore Store Review System is a web application that assists Corporate Support members in conducting
+            structured store audits using a digital scorecard. Reviewers can rate predefined operational categories
+            such as Front of House, Back of House, Buying Processes, and Customer Interactions, add contextual notes,
+            and upload before and after photos directly within the system. The application automatically calculates
+            category scores and overall ratings, eliminating manual errors and ensuring consistency across evaluations.
+        </p>
+        <p>
+            The system also supports performance tracking over time. Key store metrics such as sales, conversion rates,
+            and customer engagement can be compared between initial reviews and follow-up evaluations, allowing
+            management to measure improvement and operational impact. The long-term goal is to replace manual
+            spreadsheet-based reviews with a scalable, centralized platform.
+        </p>
+
+        <h3>Intended Users</h3>
+        <ul>
+            <li>Corporate Support members (full access)</li>
+            <li>Franchisees (access limited to their assigned stores)</li>
+            <li>Store Managers (access limited to their assigned stores)</li>
+        </ul>
+
+        <h3>Content Overview</h3>
+        <ul>
+            <li>Store review scorecards with category-based ratings</li>
+            <li>Written evaluator notes for each review item</li>
+            <li>Before and after photo uploads for visual documentation</li>
+            <li>Category summaries and overall performance ratings</li>
+            <li>Store-specific report pages</li>
+            <li>Metrics comparison data (pre- and post-review performance)</li>
+            <li>Interactive dashboards displaying store performance trends</li>
+        </ul>
+
+        <h3>Client Information</h3>
+        <ul>
+            <li><strong>Client:</strong> Wesley Swaney</li>
+            <li><strong>Title:</strong> Director of Support</li>
+            <li><strong>Organization:</strong> PayMore Group</li>
+            <li><strong>Email:</strong> [private]</li>
+            <li><strong>Phone:</strong> [private]</li>
+        </ul>
+
+        <h3>Wireframe</h3>
+        <figure>
+            <img src="images/wireframe.png" alt="Wireframe of the PayMore Store Review System dashboard showing summary cards for total stores, average score, critical issues, recent reviews, and top performing store, followed by a category performance bar chart and recent reviews table." style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+            <figcaption>Figure 1: Wireframe of the Home/Dashboard page for the PayMore Store Review System.</figcaption>
+        </figure>
+
+        <h3>Site Map</h3>
+        <figure>
+            <img src="images/sitemap.png" alt="Site map showing Home page linking to Store Details, Create Review, View Reports, and Admin/Settings. View Reports links to Metrics Comparison." style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+            <figcaption>Figure 2: Site map for the PayMore Store Review System.</figcaption>
+        </figure>
+
+        <h3>Page Design</h3>
+
+        <h4>Home / Dashboard</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Provide an overview of store performance and quick access to key features.</li>
+            <li><strong>Users:</strong> All users</li>
+            <li><strong>Content:</strong>
+                <ul>
+                    <li>Summary cards: Total Stores, Average Score, Critical Issues, Recent Reviews, Top Performing Store</li>
+                    <li>Category performance bar chart</li>
+                    <li>Recent reviews list with quick links to view all reviews and create a new review</li>
+                </ul>
+            </li>
+            <li><strong>User Input:</strong> No</li>
+            <li><strong>Validation:</strong> None</li>
+            <li><strong>Links/Buttons:</strong> Navigation links to all pages; quick link to Create Review</li>
+            <li><strong>Actions:</strong> Navigate to Create Review or View Reports</li>
+        </ul>
+
+        <h4>Create Review</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Allow Corporate Support users to conduct and submit store evaluations.</li>
+            <li><strong>Users:</strong> Corporate Support</li>
+            <li><strong>Content:</strong>
+                <ul>
+                    <li>Store select dropdown</li>
+                    <li>Review date field</li>
+                    <li>Category rating sections (Front of House, Back of House, Buying Processes, Customer Interactions)</li>
+                    <li>Notes input fields per category</li>
+                    <li>Before and after photo upload inputs</li>
+                </ul>
+            </li>
+            <li><strong>User Input:</strong> Yes</li>
+            <li><strong>Validation:</strong> Notes input fields (required, length check); photo uploads (file type and size validation)</li>
+            <li><strong>Links/Buttons:</strong> Submit Review, Save Review (draft)</li>
+            <li><strong>Actions:</strong> Automatically calculates category and overall scores on input; submits or saves the review</li>
+        </ul>
+
+        <h4>View Reports</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Display completed reviews and allow filtering and searching.</li>
+            <li><strong>Users:</strong> Corporate Support (all stores); Franchisees and Managers (assigned stores only)</li>
+            <li><strong>Content:</strong>
+                <ul>
+                    <li>List of completed reviews</li>
+                    <li>Filter controls by store, date range, and reviewer</li>
+                </ul>
+            </li>
+            <li><strong>User Input:</strong> Yes (filter/search inputs)</li>
+            <li><strong>Validation:</strong> Ensure valid filter selections before applying</li>
+            <li><strong>Links/Buttons:</strong> Search bar, dropdown filters, clickable report links, link to Metrics Comparison</li>
+            <li><strong>Actions:</strong> Filter and search review list; click a report to navigate to Store Details</li>
+        </ul>
+
+        <h4>Store Details</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Display detailed results for a specific store review.</li>
+            <li><strong>Users:</strong> Corporate Support, Franchisees, Managers</li>
+            <li><strong>Content:</strong>
+                <ul>
+                    <li>Review scores by category</li>
+                    <li>Evaluator notes per category</li>
+                    <li>Before and after photo gallery</li>
+                    <li>Overall performance rating</li>
+                </ul>
+            </li>
+            <li><strong>User Input:</strong> No</li>
+            <li><strong>Validation:</strong> None</li>
+            <li><strong>Links/Buttons:</strong> Back to Reports, link to Metrics Comparison for this store</li>
+            <li><strong>Actions:</strong> Acts as the main report page for a completed review</li>
+        </ul>
+
+        <h4>Metrics Comparison</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Show performance changes over time for a selected store.</li>
+            <li><strong>Users:</strong> Corporate Support, Store Admins</li>
+            <li><strong>Content:</strong>
+                <ul>
+                    <li>Pre- and post-review metrics (sales, conversion rate, customer engagement)</li>
+                    <li>Charts and graphs displaying improvement trends</li>
+                </ul>
+            </li>
+            <li><strong>User Input:</strong> Yes (store select dropdown)</li>
+            <li><strong>Validation:</strong> Ensure a valid store is selected before loading data</li>
+            <li><strong>Links/Buttons:</strong> Store select dropdown, date range selector</li>
+            <li><strong>Actions:</strong> Load and display comparison charts for selected store and time range</li>
+            <li><strong>Notes:</strong> Focused on improvement tracking between initial and follow-up evaluations</li>
+        </ul>
+
+        <h4>Admin / Settings</h4>
+        <ul>
+            <li><strong>Purpose:</strong> Allow administrators to configure the review system.</li>
+            <li><strong>Users:</strong> Corporate Support</li>
+            <li><strong>Content:</strong>
+                <ul>
+                    <li>Category management (add, edit, remove review categories)</li>
+                    <li>Scoring threshold configuration</li>
+                </ul>
+            </li>
+            <li><strong>User Input:</strong> Yes</li>
+            <li><strong>Validation:</strong> Input validation for all settings fields</li>
+            <li><strong>Links/Buttons:</strong> Forms, toggles, Save/Update buttons</li>
+            <li><strong>Actions:</strong> Update system configuration and scoring rules</li>
+        </ul>
+
+        <h3>Dynamic Functionality</h3>
+
+        <h4>Review Score Calculation</h4>
+        <ul>
+            <li><strong>Page:</strong> Create Review</li>
+            <li><strong>Function:</strong> Automatically calculates category scores and the overall review score in real time as the reviewer enters ratings.</li>
+            <li><strong>Purpose:</strong> Eliminates manual calculation errors and provides immediate feedback during the review process.</li>
+            <li><strong>Example:</strong> <a href="https://forms.google.com" target="_blank">Google Forms</a> (form input and response collection structure)</li>
+        </ul>
+
+        <h4>Real-Time Category Summary Updates</h4>
+        <ul>
+            <li><strong>Page:</strong> Home / Dashboard and View Reports</li>
+            <li><strong>Function:</strong> Dynamically updates category averages and performance summaries as new review data is loaded or entered.</li>
+            <li><strong>Purpose:</strong> Provides instant feedback and keeps dashboards current without a page reload.</li>
+            <li><strong>Example:</strong> <a href="https://tabler.io/admin-template" target="_blank">Tabler Admin Template</a> (JavaScript-driven dashboard with live updating widgets)</li>
+        </ul>
+
+        <h4>Filtering and Search</h4>
+        <ul>
+            <li><strong>Page:</strong> View Reports</li>
+            <li><strong>Function:</strong> Allows users to filter the review list by store, date range, and reviewer using dropdown menus and a search bar.</li>
+            <li><strong>Purpose:</strong> Improves usability and navigation for users managing large numbers of reviews.</li>
+            <li><strong>Example:</strong> <a href="https://tabler.io/admin-template" target="_blank">Tabler Admin Template</a> (filterable data tables)</li>
+        </ul>
+    </main>
+    <div data-include="components/footer.html"></div>
+    <script src="scripts/include.min.js"></script>
+</body>
+
+</html>
