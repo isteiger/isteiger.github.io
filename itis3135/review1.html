@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian K. Steiger's Ingenious Squirrel ~ ITIS 3135 | Peer Review 1</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div data-include="components/header.html"></div>
+    <main>
+        <h2>Peer Review 1</h2>
+        <section>
+            <h3>Wyatt, Alex</h3>
+            <figure>
+                <a href="https://webpages.charlotte.edu/mwyatt19/itis3135" target="_blank">
+                    <img src="images/review1_screenshot.png"
+                        alt="Screenshot of Alex Wyatt's ITIS 3135 website"
+                        style="max-width: 480px; width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </a>
+                <figcaption>
+                    <a href="https://webpages.charlotte.edu/mwyatt19/itis3135" target="_blank">
+                        https://webpages.charlotte.edu/mwyatt19/itis3135
+                    </a>
+                </figcaption>
+            </figure>
+
+            <h4>Evaluation</h4>
+            <ul>
+                <!-- Checklist items -->
+                <li><strong>Valid HTML:</strong> Pages appear to load without major structural errors, but a missing <code>&lt;h1&gt;</code> was flagged by the WCAG checker — the site header should use an <code>&lt;h1&gt;</code> element for proper document outline.</li>
+                <li><strong>Accessibility (WCAG):</strong> The WCAG checker returned errors: a missing form label and a missing <code>&lt;h1&gt;</code>. These should be addressed — add <code>&lt;label&gt;</code> elements for any form inputs and ensure an <code>&lt;h1&gt;</code> exists on each page.</li>
+                <li><strong>Color / Contrast:</strong> All fonts appear to be black, which makes text difficult to read against certain backgrounds. This looks like a default font-color issue — consider adding explicit color styling with sufficient contrast ratios.</li>
+                <li><strong>Typography:</strong> The font chosen is pretty hard to read. Another font would significantly improve the visual quality and readability of the site.</li>
+                <li><strong>Layout / Spacing:</strong> The <code>&lt;main&gt;</code> element is missing a left margin — adding <code>margin-left: 8px</code> (the browser default) would bring it in line with expected spacing.</li>
+                <li><strong>Navigation:</strong> The sidebar links are spaced extremely far apart. I'd recommend consolidating these into a top navigation bar with consistent spacing, which would be both more usable and more visually polished.</li>
+                <li><strong>Homepage:</strong> Generally looks good — content is present and the layout works once the nav spacing is addressed.</li>
+                <li><strong>About Page:</strong> Looks fine — basic content is present and readable.</li>
+                <li><strong>Adopt Page:</strong> The text alignment looks off — it appears centering may have been done using spaces or <code>&amp;nbsp;</code> rather than <code>text-align: center;</code> in CSS. Use CSS for all alignment.</li>
+                <li><strong>Donate Page:</strong> Content looks good. The font size inside input groups should be differentiated from the label/title text — currently they are the same size and weight, making it hard to distinguish fields from headings.</li>
+                <li><strong>Contact Page:</strong> Looks good overall. Same input group font-size suggestion applies here as with the Donate page.</li>
+                <li><strong>Overall:</strong> Good start — the structure and content are there. Focus on CSS polish, accessibility fixes, and consistent font/color choices to bring it to the next level. Keep going!</li>
+            </ul>
+
+            <p><em>Steiger, Ian &mdash; April 19, 2026</em></p>
+            <p>I have emailed the link to this review to Alex Wyatt.</p>
+        </section>
+    </main>
+    <div data-include="components/footer.html"></div>
+    <script src="scripts/include.min.js"></script>
+</body>
+
+</html>
